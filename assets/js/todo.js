@@ -1,12 +1,14 @@
-let activeTodoCount = document.querySelector('.activeTodoCount');
+let activeTodoCount = document.querySelector(".activeTodoCount");
 let todos = [];
 let id = 0;
 let activeTodoCounter = 0;
 
-
 if (localStorage.todos) {
   todos = JSON.parse(localStorage.todos);
   renderTodos();
+  addData.disabled = true;
+}  else {
+  addData.disabled = false;
 }
 
 if (localStorage.id) {
@@ -18,6 +20,56 @@ function generateId() {
   localStorage.id = id;
   return id;
 }
+
+addData.addEventListener("click", function () {
+  todos = [
+    ...todos,
+    {
+      id: 1,
+      todo: "Kitap oku",
+    },
+    {
+      id: 2,
+      todo: "Egzersiz yap",
+    },
+    {
+      id: 3,
+      todo: "Ders çalış",
+    },
+    {
+      id: 4,
+      todo: "Proje geliştir",
+    },
+    {
+      id: 5,
+      todo: "Sağlıklı beslen",
+    },
+    {
+      id: 6,
+      todo: "Meditasyon yap",
+    },
+    {
+      id: 7,
+      todo: "Blog yazısı yaz",
+    },
+    {
+      id: 8,
+      todo: "Yeni dil öğren",
+    },
+    {
+      id: 9,
+      todo: "Evi temizle",
+    },
+    {
+      id: 10,
+      todo: "Film izle",
+    },
+  ];
+  save();
+  renderTodos();
+  addData.disabled = true;
+
+});
 
 addTodoBtn.addEventListener("click", () => {
   modal.classList.remove("editModal");
@@ -71,7 +123,7 @@ function clear() {
   liste.innerHTML = "";
   activeTodoCounter = 0;
   activeTodoCount.innerText = 0;
-  todoList = [];
+  todos = [];
   renderTodos();
   addTodoForm.reset();
 }
