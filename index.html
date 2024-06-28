@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo Liste</title>
+  <link rel="stylesheet" href="assets/css/todo.css">
+  <script src="assets/js/todo.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <header class="todosHeader">
+
+      <button id="addTodoBtn">Todo Ekle</button>
+    </header>
+
+    <div class="todoText">
+      <h5>Yapılacak görevler - <span class="activeTodoCount">0</span></h5>
+      <ul class="todoList" id="liste">
+      </ul>
+    </div>
+    <div class="btn">
+      <button class="clearBtn" id="clearStorage">Storage' i Temzile</button>
+    </div>
+  </div>
+
+  <dialog id="modal">
+    <h2 class="modelAddNew">Todo Ekle</h2>
+    <h2 class="modelEdit">Todo'yu Düzenle</h2>
+    <form id="addTodoForm" autocomplete="off" method="dialog">
+      <input type="text" name="todo" placeholder="Yeni bir görev ekle" id="todoTxt" required>
+      <p> <button id="ekleBtn" class="modelAddNew"><img src="assets/img/Vector.svg" alt=""></button> <button class="modelEdit">Kaydet</button> <button type="button" onclick="addTodoForm.reset();modal.close();">Vazgeç</button></p>
+      <input type="hidden" name="id" value="">
+    </form>
+  </dialog>
+  
+</body>
+</html>
